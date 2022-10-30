@@ -1,0 +1,11 @@
+# Файлы pychache
+__pycache__/
+app/__pycache__/
+
+# Окружение Python
+venv/
+
+# Файл настроек Pycharm
+.idea/
+
+migrations/

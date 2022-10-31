@@ -13,13 +13,13 @@ PRODUCTS_CSV_URL = 'https://docs.google.com/spreadsheet/ccc?key=1roypo_8amDEIYc-
 bp = flask.Blueprint('scripts', __name__)
 
 
-@bp.cli.command('boostrap_db')
+@bp.cli.command('bootstrap_db')
 def bootstrap_db():
-    """Заливка базы данных.
+    """fill db.
 
-    Использовать: flask scripts bootstrap_db
+    for use: flask scripts bootstrap_db
     """
-    # Заливка продуктов в базу данных
+    # Uploading products to the database
     products_content = requests.get(PRODUCTS_CSV_URL).content.decode()
     products_reader = csv.DictReader(io.StringIO(products_content))
 
@@ -28,7 +28,7 @@ def bootstrap_db():
         db.session.add(product)
     db.session.commit()
 
-    # Заливка отзывов в базу данных
+    # Uploading reviews to the database
     reviews_content = requests.get(REVIEWS_CVS_URL).content.decode()
     reader_reviews = csv.DictReader(io.StringIO(reviews_content))
     for row in reader_reviews:
@@ -36,4 +36,4 @@ def bootstrap_db():
         db.session.add(review)
     db.session.commit()
 
-    print('Заливка завершена')
+    print('Upload completed')

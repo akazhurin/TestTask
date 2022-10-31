@@ -8,22 +8,22 @@ from . import endpoints_views, scripts_views
 
 
 def create_app():
-    """Создание Flask приложения"""
+    """Creating a Flask Application"""
     app = Flask(__name__)
 
-    # Загрузка переменных окружения
+    # Loading environment variables
     dotenv.load_dotenv('.env')
     app.config.from_object(os.getenv('CONFIG'))
 
-    # Регистрация blueprint`ov
+    # Registration blueprint`ov
     app.register_blueprint(endpoints_views.bp)
     app.register_blueprint(scripts_views.bp)
 
-    # Создание расширений для работы с БД
+    # Creating extensions for working with the database
     db.init_app(app)
     migrate.init_app(app, db)
 
-    # Создание расширения для работы с кешированием
+    # Creating an extension for working with caching
     cache.init_app(app)
 
     return app

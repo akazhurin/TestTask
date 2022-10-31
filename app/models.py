@@ -2,7 +2,7 @@ from . import db
 
 
 class Product(db.Model):
-    """Модель продукта"""
+    """Product model"""
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(255))
     asin = db.Column(db.String(50), unique=True, index=True)
@@ -10,7 +10,7 @@ class Product(db.Model):
 
 
 class Review(db.Model):
-    """Модель отзыва"""
+    """Review model"""
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(255))
     content = db.Column(db.Text)

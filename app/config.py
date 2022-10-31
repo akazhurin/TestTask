@@ -2,14 +2,14 @@ import os
 
 
 class Config:
-    """Клас конфигурации приложения"""
+    """Application configuration class"""
     DEBUG = os.getenv('FLASK_DEBUG')
     SECRET_KEY = os.getenv('SECRET_KEY')
 
-    # Настройка кеширования
+    # Setting up caching
     CACHE_TYPE = "SimpleCache"
     CACHE_DEFAULT_TIMEOUT = 300
 
-    # Настройка SQLALCHEMY
+    # Setting up SQLALCHEMY
     SQLALCHEMY_DATABASE_URI = os.getenv('DATABASE_URL')
 

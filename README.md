@@ -14,6 +14,6 @@
 -  flask db migrate
 -  flask db upgrade
 5. Заполнить базу данных данными из csv файлов:   
--  flask script boostrap-db
+-  flask script bootstrap-db
 6. Запустить приложение:   
 -  flask run
